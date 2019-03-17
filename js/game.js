@@ -65,7 +65,8 @@ window.Game = (function () {
 
   /**
    * Допустимые виды объектов на карте.
-   * @enum {number}
+   * @
+   * enum {number}
    */
   var ObjectType = {
     ME: 0,
