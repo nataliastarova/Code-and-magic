@@ -9,6 +9,9 @@ var TEXT_WIDTH = 50;
 var BAR_WIDTH = 40;
 var barHeight = 150;
 var offset = 10;
+var you = 'Вы';
+
+
 
 var renderCloud = function(ctx, x, y, color)   {
     ctx.fillStyle = color;
@@ -32,12 +35,12 @@ window.renderStatistics = function(ctx, players, times) {
     renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
     ctx.fillStyle = '#000';
-
+    
     var maxTime = getMaxElement(times);
 
     for (var i = 0; i < players.length; i++) {
-        ctx.fillText(players[i], CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + offset + FONT_GAP + FONT_GAP + barHeight);
-        ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + offset+ FONT_GAP, BAR_WIDTH, (barHeight * times[i]) / maxTime)
+        ctx.fillText(players[i], CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + offset + FONT_GAP + FONT_GAP + barHeight + GAP);
+        ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH + GAP) * i, CLOUD_Y + offset + FONT_GAP + FONT_GAP + (barHeight -((barHeight * times[i]) / maxTime)), BAR_WIDTH, (barHeight * times[i]) / maxTime)
     }
 };
 
